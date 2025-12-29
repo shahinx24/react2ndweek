@@ -21,6 +21,15 @@ export default function ListPage() {
     fetchUsers();
   }
 
+  async function deleteUser(id) {
+  try {
+    await axios.delete(`http://localhost:3000/users/${id}`);
+    fetchUsers(); // reload list after delete
+  } catch (err) {
+    console.error("Delete failed", err);
+  }
+}
+
   return (
     <>
       <h2>User List</h2>
@@ -38,6 +47,9 @@ export default function ListPage() {
           />
           <button onClick={() => updateUser(user.id, user)}>
             Update
+          </button>
+          <button onClick={() => deleteUser(user.id)}>
+          Delete
           </button>
         </div>
       ))}

@@ -24,7 +24,7 @@ export default function FormPage() {
       <input placeholder="Name" value={name}
         onChange={(e) => setName(e.target.value)}
       /><br />
-      <input placeholder="Age" value={age}
+      <input placeholder="Age" value={age} type="Number"
         onChange={(e) => setAge(e.target.value)}
       /><br />
       <button onClick={handleSubmit}>Submit</button>
