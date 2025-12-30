@@ -14,7 +14,7 @@ export default function ListPage() {
   }
 
   async function updateUser(id, updatedUser) {
-    await axios.put(
+    await axios.patch(
       `http://localhost:3000/users/${id}`,
       updatedUser
     );
