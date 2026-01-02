@@ -1,13 +1,17 @@
-import { Routes, Route } from "react-router-dom";
-import FormPage from "./pages/FormPage";
-import ListPage from "./pages/ListPage";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
-function App() {
+export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<FormPage />} />
-      <Route path="/list" element={<ListPage />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/register" />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
-export default App
+} 
