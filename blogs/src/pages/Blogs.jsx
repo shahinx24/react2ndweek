@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BlogContext } from "../context/BlogContext";
 
-export default function Blogs() {
+function Blogs() {
   const { blogs } = useContext(BlogContext);
 
   return (
@@ -19,3 +19,4 @@ export default function Blogs() {
     </>
   );
 }
+export default Blog

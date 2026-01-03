@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogContext } from "../context/BlogContext";
 
-export default function CreateBlog() {
+function CreateBlog() {
   const { blogs, setBlogs } = useContext(BlogContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -42,3 +42,4 @@ export default function CreateBlog() {
     </>
   );
 }
+export default CreateBlog

@@ -3,7 +3,7 @@ import CreateBlog from "./pages/CreateBlog";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 
-export default function App() {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/createblog" />} />
@@ -13,3 +13,4 @@ export default function App() {
     </Routes>
   );
 }
+export default App
