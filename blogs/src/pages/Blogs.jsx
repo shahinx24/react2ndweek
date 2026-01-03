@@ -19,4 +19,4 @@ function Blogs() {
     </>
   );
 }
-export default Blog
+export default Blogs
