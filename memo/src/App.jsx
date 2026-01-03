@@ -13,9 +13,8 @@ export default function Parent() {
   const sayHello = useCallback(() => {
     console.log("Hi");
   }, []);
-
   console.log("Parent rendered");
-
+  
   return (
     <>
       <h2>Count: {count}</h2>

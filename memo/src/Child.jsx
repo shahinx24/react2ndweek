@@ -6,9 +6,8 @@ const Child = React.memo(function Child({ user, sayHello }) {
   return (
     <>
       <p>{user.name}</p>
-      <button onClick={sayHello}>Say Hi</button>
+      <button onClick={sayHello}>Hello {user.name}</button>
     </>
   );
 });
-
 export default Child;
