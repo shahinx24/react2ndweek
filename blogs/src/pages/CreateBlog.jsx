@@ -1,24 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { BlogContext } from "../context/BlogContext";
 
-export default function CreateBlog({ blogs, setBlogs }) {
+export default function CreateBlog() {
+  const { blogs, setBlogs } = useContext(BlogContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const now = new Date();
-
     const newBlog = {
       id: Date.now(),
       title,
       body,
-      date: now.toLocaleDateString(),
-      time: now.toLocaleTimeString(),
+      createdAt: now.toLocaleString(), // date + time stored ONCE
     };
-
     setBlogs([...blogs, newBlog]);
     navigate("/blogs");
   }
@@ -26,22 +24,19 @@ export default function CreateBlog({ blogs, setBlogs }) {
   return (
     <>
       <h2>Create Blog</h2>
-
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Blog Title"
+          placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <br /><br />
-
         <textarea
-          placeholder="Blog Body"
+          placeholder="Body"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
         <br /><br />
-
         <button type="submit">Create</button>
       </form>
     </>
