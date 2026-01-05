@@ -3,11 +3,9 @@ import {useReducer} from "react";
 function reducer(state,action){
     if(action.type === "INC"){
       return state + 1;
-    }
-    if(action.type === "DEC"){
+    }if(action.type === "DEC"){
       return state - 1;
-    }
-    if(action.type === "RESET"){
+    }if(action.type === "RESET"){
       return 0;
     }else{
       return state;
