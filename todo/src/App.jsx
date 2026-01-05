@@ -18,7 +18,6 @@ export default function TodoApp() {
     dispatch({ type: "ADD", text });
     setText("");
   }
-
   return (
     <>
       <input
