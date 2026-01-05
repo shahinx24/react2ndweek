@@ -27,7 +27,6 @@ export default function TodoApp() {
         placeholder="Enter todo"
       />
       <button onClick={addTodo}>Add</button>
-
       <ul>
         {todos.map((todo, index) => (
           <li key={index}>
