@@ -1,8 +1,13 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { ThemeContext } from "./ThemeContext.jsx"
+import "./App.css"
 
 export default function App(){
   const {theme,setTheme} = useContext(ThemeContext)
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return(
     <>
