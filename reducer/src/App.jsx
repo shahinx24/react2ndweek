@@ -10,7 +10,7 @@ function reducer(state,action){
     }else{
       return state;
     }
-}
+} 
 
 export default function App(){
   const [count, dispatch] = useReducer(reducer,0);
