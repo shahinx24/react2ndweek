@@ -1,41 +1,32 @@
-import { useReducer, useState } from "react";
+import { useReducer,useState } from "react"
 
-function reducer(state, action) {
-  if (action.type === "ADD") {
-    return [...state, action.text];
-  }
-  if (action.type === "DELETE") {
-    return state.filter((_, index) => index !== action.index);
-  }
-  return state;
+function reducer(state,action){
+    if(action.type === "ADD"){
+        return [...state,action.task]
+    }if(action.type === "DLT"){
+        return state.filter((_,index)=> index !== action.index)
+    }return state;
 }
 
-export default function TodoApp() {
-  const [todos, dispatch] = useReducer(reducer, []);
-  const [text, setText] = useState("");
+export default function app(){
+    const [todo,dispatch] = useReducer(reducer,[])
+    const [task,setTask] = useState("")
 
-  function addTodo() {
-    dispatch({ type: "ADD", text });
-    setText("");
-  }
-  return (
-    <>
-      <input
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Enter todo"
-      />
-      <button onClick={addTodo}>Add</button>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            {todo}
-            <button onClick={() => dispatch({ type: "DELETE", index })}>
-              ❌
-            </button>
-          </li>
+    function toDo(){
+        if(task.trim() === "")return;
+        dispatch({type : "ADD",task})
+        setTask("")
+    }
+
+    return(
+        <>
+        <input onChange={(e)=> setTask(e.target.value)} value={task} />
+        <button onClick={toDo} >Add</button>
+        {todo.map((item,index)=>(
+            <p key={index}>{item}
+            <button onClick={()=> dispatch({type : "DLT",index})}>Delete</button>
+            </p>
         ))}
-      </ul>
-    </>
-  );
+        </>
+    )
 }
