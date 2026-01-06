@@ -1,35 +1,87 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useReducer } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+function cartReducer(state, action) {
+  if (action.type === "ADD_TO_CART") {
+    const existing = state.find(item => item.id === action.item.id);
+
+    if (existing) {
+      return state.map(item =>
+        item.id === action.item.id
+          ? { ...item, qty: item.qty + 1 }
+          : item
+      );
+    }
+
+    return [...state, { ...action.item, qty: 1 }];
+  }
+
+  if (action.type === "INCREASE_QTY") {
+    return state.map(item =>
+      item.id === action.id
+        ? { ...item, qty: item.qty + 1 }
+        : item
+    );
+  }
+
+  if (action.type === "DECREASE_QTY") {
+    return state
+      .map(item =>
+        item.id === action.id
+          ? { ...item, qty: item.qty - 1 }
+          : item
+      )
+      .filter(item => item.qty > 0);
+  }
+
+  if (action.type === "REMOVE_ITEM") {
+    return state.filter(item => item.id !== action.id);
+  }
+
+  return state;
+}
+
+export default function App() {
+  const [cart, dispatch] = useReducer(cartReducer, []);
+
+  const product = {
+    id: 1,
+    name: "Sneakers",
+    price: 2000,
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <h2>Product</h2>
+      <p>{product.name} - ₹{product.price}</p>
+      <button onClick={() => dispatch({ type: "ADD_TO_CART", item: product })}>
+        Add to Cart
+      </button>
 
-export default App
+      <hr />
+
+      <h2>Cart</h2>
+
+      {cart.length === 0 && <p>Cart is empty</p>}
+
+      {cart.map(item => (
+        <div key={item.id}>
+          <p>
+            {item.name} - ₹{item.price} × {item.qty}
+          </p>
+
+          <button onClick={() => dispatch({ type: "INCREASE_QTY", id: item.id })}>
+            +
+          </button>
+
+          <button onClick={() => dispatch({ type: "DECREASE_QTY", id: item.id })}>
+            -
+          </button>
+
+          <button onClick={() => dispatch({ type: "REMOVE_ITEM", id: item.id })}>
+            Remove
+          </button>
+        </div>
+      ))}
+    </>
+  );
+}
