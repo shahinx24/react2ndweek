@@ -10,8 +10,7 @@ export default function FormPage() {
   async function handleSubmit() {
     if (!name || !age) return;
     await axios.post("http://localhost:3000/users", {
-      name,
-      age
+      name,age
     });
     setName("");
     setAge("");
