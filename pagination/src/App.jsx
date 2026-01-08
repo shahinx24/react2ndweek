@@ -7,6 +7,7 @@ export default function App() {
 
   useEffect(() => {
     axios.get(`http://localhost:3001/users?_page=${page}&_limit=2`)
+    axios.get(`http://localhost:3000/users?_page=${page}&_limit=2`)
       .then(res => setData(res.data))
       .catch(err => console.log("Error:", err.message));
   }, [page]);
