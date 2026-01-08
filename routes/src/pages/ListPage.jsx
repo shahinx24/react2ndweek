@@ -14,8 +14,7 @@ export default function ListPage() {
   }
 
   async function updateUser(id, updatedUser) {
-    await axios.patch(
-      `http://localhost:3000/users/${id}`,
+    await axios.patch(`http://localhost:3000/users/${id}`,
       updatedUser
     );
     fetchUsers();
