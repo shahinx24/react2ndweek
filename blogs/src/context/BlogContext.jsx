@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 export const BlogContext = createContext();
-
+ 
 export function BlogProvider({ children }) {
   const [blogs, setBlogs] = useState([]);
 

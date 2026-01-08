@@ -7,7 +7,7 @@ function BlogDetails() {
   const { blogs } = useContext(BlogContext);
   const blog = blogs.find((b) => b.id === Number(id));
   if (!blog) return <h3>Blog not found</h3>;
-
+ 
   return (
     <>
       <h2>{blog.title}</h2>

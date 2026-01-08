@@ -4,7 +4,7 @@ import { BlogContext } from "../context/BlogContext";
 
 function Blogs() {
   const { blogs } = useContext(BlogContext);
-
+ 
   return (
     <>
       <h2>Blogs</h2>

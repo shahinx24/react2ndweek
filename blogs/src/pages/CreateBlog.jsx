@@ -13,8 +13,7 @@ function CreateBlog() {
     const now = new Date();
     const newBlog = {
       id: Date.now(),
-      title,
-      body,
+      title, body,
       createdAt: now.toLocaleString(), // date + time stored ONCE
     };
     setBlogs([...blogs, newBlog]);
