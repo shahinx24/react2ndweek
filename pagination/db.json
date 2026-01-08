@@ -1,0 +1,12 @@
+{
+  "users": [
+    { "id": 1, "name": "Aadi" },
+    { "id": 2, "name": "Ram" },
+    { "id": 3, "name": "Aswin" },
+    { "id": 4, "name": "Jeeva" },
+    { "id": 5, "name": "Zara" },
+    { "id": 6, "name": "Meera" },
+    { "id": 7, "name": "Teni" },
+    { "id": 8, "name": "Hanan" }
+  ]
+}
