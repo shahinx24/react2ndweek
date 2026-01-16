@@ -1,0 +1,27 @@
+.title {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.search {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto 1rem;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 0 1rem;
+}
+
+.card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}

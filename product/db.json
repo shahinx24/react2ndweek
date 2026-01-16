@@ -1,0 +1,7 @@
+{
+  "products": [
+    { "id": 1, "name": "Brush", "price": 99 },
+    { "id": 2, "name": "Canvas 24x36", "price": 499 },
+    { "id": 3, "name": "Premium Acrylic Paint", "price": 299 }
+  ]
+}

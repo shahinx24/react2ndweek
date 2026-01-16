@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogContext } from "../context/BlogContext";
-
+ 
 function CreateBlog() {
   const { blogs, setBlogs } = useContext(BlogContext);
   const [title, setTitle] = useState("");

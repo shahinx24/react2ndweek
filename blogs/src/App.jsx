@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import CreateBlog from "./pages/CreateBlog";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
-
+ 
 function App() {
   return (
     <Routes>

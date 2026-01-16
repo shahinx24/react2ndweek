@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BlogContext } from "../context/BlogContext";
-
+ 
 function Blogs() {
   const { blogs } = useContext(BlogContext);
  
