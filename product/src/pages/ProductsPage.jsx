@@ -9,11 +9,11 @@ export default function ProductsPage(){
         .then((res)=> res.json())
         .then((data)=> setProduct(data));
     },[])
-
+ 
     const filtered= product.filter((p)=>
     p.name.toLowerCase().includes(search.toLowerCase())
     )
-    
+     
     return(
     <>
     <input onChange={(p)=> setSearch(p.target.value)} value={search}/>
